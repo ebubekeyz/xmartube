@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+ 
+
+.container {
+    margin: 50px auto;
+	max-width: 500px;
+}
+    </style>
+</head>
+<body>
+    <video id="video" src="https://res.cloudinary.com/dsrtdywmf/video/upload/v1700656988/videoplayback_1_ldoi7b.mp4" type="video/mp4" controls class="vid"></video>
+<button onclick="capture()">Capture</button>
+<canvas onLoad=""id="canvas" style="overflow:auto"></canvas>
+
+<script>
+    function capture() {
+    var canvas = document.getElementById('canvas');     
+    var video = document.getElementById('video');
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+    canvas.getContext('2d').drawImage(video, 0, 0, video.videoWidth, video.videoHeight);  
+    canvas.toBlob() = (blob) => {
+      const img = new Image();
+      img.src = window.URL.createObjectUrl(blob);
+    };
+}
+
+let myVideo = document.querySelector('.vid')
+console.log(myVideo)    
+
+let viewcounter = 0;
+myVideo.addEventListener('play', () => {
+  myVideo.play()
+  viewcounter++
+  
+
+})
+
+// console.log(onPlay())
+
+    </script>
+</body>
+</html>

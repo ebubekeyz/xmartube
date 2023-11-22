@@ -1,0 +1,1472 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>xmartube || Capturing Moments, Creating Memories</title>
+
+  <!-- meta tags for seo -->
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="title" content="Uncover the Stories, Ignite Your Imagination" />
+  <meta name="description"
+    content="xmartube is more than just a platform; it's a community. We believe in the power of storytelling, and your opinion is valued here. Share your experiences, insights, and passions with a global audience eager to connect and engage." />
+  <meta property="og:description"
+    content="xmartube is more than just a platform; it's a community. We believe in the power of storytelling, and your opinion is valued here. Share your experiences, insights, and passions with a global audience eager to connect and engage." />
+  <meta property="og:title" content="Uncover the Stories and Ignite Your Imagination from xmartube" />
+  <!-- <meta property="og:image" content="./images"/> -->
+  <meta name="keywords" content="Video Blog,
+      Vlog,
+      Video Content,
+      Lifestyle Vlogging,
+      Travel Vlogs,
+      Tech Reviews,
+      DIY Videos,
+      How-to Tutorials,
+      Adventure Vlogs,
+      Foodie Vlogs,
+      Fashion Vlogs,
+      Beauty Tips Videos,
+      Fitness Vlogs,
+      Personal Storytelling,
+      Creative Exploration,
+      Documentary Videos,
+      Behind the Scenes,
+      Daily Vlog,
+      Exclusive Interviews,
+      User-Generated Content" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="language" content="English" />
+  <meta name="author" content="xmartube" />
+
+  <!-- links -->
+  <!-- css -->
+  <link rel="stylesheet" href="./css/index.css" />
+
+  <!-- fontawesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+</head>
+
+<body>
+  <!-- nav menu -->
+  <section class="nav-section">
+    <nav>
+      <div class="nav-center">
+        <!-- nav header -->
+        <div class="nav-header">
+          <span class="nav-toggle">
+            <i class="fas fa-bars"></i>
+          </span>
+          <a href="/"><img src="./images/logo.png" class="logo" alt="" /></a>
+        </div>
+
+        <!-- input -->
+
+        <input type="text" class="search" id="search-input" placeholder="Search" />
+
+        <ul class="links">
+          <li>
+            <span class="search-btn" id="search-btn"><i class="fas fa-search"></i></span>
+          </li>
+        </ul>
+
+        <span class="avat"><img src="./images/avatar.jpg" class="avatar" alt="" /></span>
+      </div>
+    </nav>
+
+
+  </section>
+
+
+  <!-- tag section -->
+  <section class="tag-section">
+    <span class="back" id="back"><i class="fas fa-chevron-left"></i></span>
+    <div class="tag-center">
+      <a href="" type="button" id="all" class="first-tag tag">All</a>
+      <a href="" type="button" class="tag" id="adventure">Adventure</a>
+      <a href="" type="button" class="tag" id="travel">Travel</a>
+      <a href="" type="button" class="tag" id="lifestyle">Lifestyle</a>
+      <a href="" type="button" class="tag" id="documentary">Documentary</a>
+      <a href="" type="button" class="tag" id="tutorials">Tutorials</a>
+      <a href="" type="button" class="tag" id="beautytips">BeautyTips</a>
+      <a href="" type="button" class="tag" id="creativity">Creativity</a>
+      <a href="" type="button" class="tag" id="storytelling">Storytelling</a>
+      <a href="" type="button" class="tag" id="scenes">Scenes</a>
+    </div>
+    <span class="front"><i class="fas fa-chevron-right"></i></span>
+  </section>
+
+
+  <section class="vid-section" id="vid-section">
+
+   
+
+<p class="message"></p>
+
+  </section>
+
+
+
+
+
+  <!-- split menu -->
+  <section class="split-menu">
+    <article class="nav-header2">
+      <span class="nav-toggle2">
+        <i class="fas fa-bars"></i>
+      </span>
+      <a href="/"><img src="./images/logo.png" class="logo2" alt="" /></span>
+    </article>
+
+    <div class="category">
+      <span><span class="ico"><i class="fas fa-bahai"></i></span><span class="inner">Categories</span></span>
+      <ul class="cat-list">
+        <li class="first" id="sport">
+         <span class="ico"><i class="fas fa-baseball"></i></span><span class="inner">Sports</span>
+        </li>
+        <li id="science" >
+          <span class="ico"><i class="fas fa-network-wired"></i></span><span class="inner">Science</span>
+        </li>
+        <li class="adventure">
+        <span class="ico"><i class="fas fa-photo-video"></i></span><span class="inner">Adventure</span>
+        </li>
+        <li id="entertainment">
+         <span class="ico"><i class="fas fa-video"></i></span><span class="inner">Entertainment</span>
+        </li>
+        <li class="last" id="politics">
+         <span class="ico"><i class="fas fa-globe"></i></span><span class="inner">Politics</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <script>
+    const itemBtn = document.querySelectorAll('.cat-list li');
+    const inner = document.querySelectorAll('.inner');
+    const tag = document.querySelectorAll('.tag');
+    const tagCen = document.querySelector('.tag-center');
+    const navToggleBtn = document.querySelector('.nav-toggle');
+    const navToggleBtn2 = document.querySelector('.nav-toggle2');
+    const splitMenuDOM = document.querySelector('.split-menu');
+    const searchBtn = document.querySelector('.search-btn');
+    const search = document.querySelector('.search');
+    const logo = document.querySelector('.logo');
+    const logo2 = document.querySelector('.logo2');
+    const avatar = document.querySelector('.avat');
+    const back = document.querySelector('.back')
+    const front = document.querySelector('.front')
+
+    tag.forEach(function (slide, index) {
+      slide.style.left = `${index * 100}%`;
+      
+    });
+
+    let counter = 0;
+    front.addEventListener("click", function () {
+      counter++;
+      carousel();
+    });
+
+    back.addEventListener("click", function () {
+      counter--;
+      carousel();
+    });
+
+
+    function carousel() {
+
+      if (counter < tag.length - 1) {
+        front.style.display = "block";
+
+      } else {
+        front.style.display = "none";
+      }
+      if (counter > 0) {
+        back.style.display = "block";
+
+      } else {
+        back.style.display = "none";
+      }
+      tag.forEach(function (slide) {
+        slide.style.transform = `translateX(-${counter * 58}px)`
+          ;
+      });
+    }
+    back.style.display = "none";
+
+
+
+
+    searchBtn.addEventListener('click', () => {
+      search.classList.toggle('show-input');
+      logo.classList.toggle('remove');
+      avatar.classList.toggle('remove');
+    });
+
+    function innerFunc() {
+      inner.forEach((inner) => {
+        inner.classList.toggle('visible');
+      });
+    }
+
+    navToggleBtn2.addEventListener('click', () => {
+      splitMenuDOM.classList.toggle('show-width');
+      splitMenuDOM.classList.toggle('opac')
+
+      itemBtn.forEach((item) => {
+        item.classList.toggle('line');
+        item.classList.toggle('color');
+
+        innerFunc();
+      });
+    });
+
+    navToggleBtn.addEventListener('click', () => {
+      splitMenuDOM.classList.toggle('show-width');
+      splitMenuDOM.classList.toggle('opac')
+      itemBtn.forEach((item) => {
+        item.classList.toggle('line');
+        item.classList.toggle('color');
+
+        innerFunc();
+      });
+    });
+
+  </script>
+
+
+
+  <script>
+const vidSec = document.querySelector('#vid-section')
+
+const vidFunc = async () => {
+  try{
+    const response = await fetch('/api/v1/article', {
+      method: 'GET',
+      headers: {
+        "Content-Type": 'application/json'
+      }
+    })
+
+    let data = await response.json()
+    
+    const article = data.article
+   
+    
+    
+    vidSec.innerHTML = article.map((item) => {
+      const {_id:id, video, image, title, createdAt, user: {image: userImg, name: name}} = item
+      
+      return `
+      <article class="video-player">
+      <div class="blog">
+        <img src="${image}" class="vid-img" alt="">
+
+        <a href="/post?id=${id}" class="watch"><i class="fas fa-play"></i></a>
+      </div>
+
+      <div class="vid-img-body">
+        <img src="${userImg}" class="vid-img" alt="" />
+
+        <div class="block">
+          <h3><a href="/post?id=${id}">${title}</a></h3>
+
+          <div class="text">
+            <span>${name}</span>
+           
+            <span>1 month ago</span>
+          </div>
+
+        </div>
+      </div>
+    </article>
+      `
+     
+    }).join('')
+
+  
+    
+  }
+  catch(error){
+    console.log(error)
+  }
+}
+
+vidFunc()
+  </script>
+
+
+  <script>
+    const searchInput = document.querySelector('#search-input')
+
+    const searchFunc = async() => {
+      const value = searchInput.value
+      try {
+        const response = await fetch('/api/v1/article', {
+          method: 'GET',
+          headers: {
+            "Content-Type": 'application/json'
+          }
+        })
+
+
+        const data = await response.json()
+        const article = data.article
+
+        const value = searchInput.value
+
+        if(value){
+          const searchStore = article.filter((search) => {
+            let { title } = search;
+        title = title.toLowerCase();
+        if (title.startsWith(value)) {
+          return search;
+        }
+          })
+          
+          console.log(searchStore.length);
+
+         
+          if(searchStore.length === 0){
+            vidSec.innerHTML = `<h4 class="message">Sorry no item found. Please try another search item</h4>`
+          }
+          else{
+            vidSec.innerHTML = searchStore.map((item) => {
+      const {_id:id, video, image, title, createdAt, user: {image: userImg, name: name}} = item
+      
+      return `
+      <article class="video-player">
+      <div class="blog">
+        <img src="${image}" class="vid-img" alt="">
+
+        <a href="/post?id=${id}" class="watch"><i class="fas fa-play"></i></a>
+      </div>
+
+      <div class="vid-img-body">
+        <img src="${userImg}" class="vid-img" alt="" />
+
+        <div class="block">
+          <h3><a href="/post?id=${id}">${title}</a></h3>
+
+          <div class="text">
+            <span>${name}</span>
+           
+            <span>1 month ago</span>
+          </div>
+
+        </div>
+      </div>
+    </article>
+      `
+     
+    }).join('')
+          }
+
+          
+
+         
+
+        }
+
+
+      }
+      catch(error){
+        console.log(error)
+      }
+    }
+   
+
+    searchInput.addEventListener('keyup', searchFunc)
+    </script>
+
+
+    <script>
+      const sportBtn = document.querySelector('#sport')
+      const scienceBtn = document.querySelector('#science')
+      const adventureBtn2 = document.querySelector('.adventure')
+      const entBtn = document.querySelector('#entertainment')
+      const politicsBtn = document.querySelector('#politics')
+
+
+      
+      sportBtn.addEventListener('click', async (e) => {
+        e.preventDefault()
+        try {
+          const response = await fetch('/api/v1/article', {
+            method: 'GET',
+            headers: {
+              "Content-Type": 'application/json'
+            }
+          })
+
+          const data = await response.json()
+          const article = data.article
+         
+
+          const sportFilter = article.filter((sport) => {
+            if(sport.category === 'sport'){
+              return sport
+            }
+          })
+         
+       
+          vidSec.innerHTML = sportFilter.map((item) => {
+      const {_id:id, video, image, title, createdAt, user: {image: userImg, name: name}} = item
+      
+      return `
+      <article class="video-player">
+      <div class="blog">
+        <img src="${image}" class="vid-img" alt="">
+
+        <a href="/post?id=${id}" class="watch"><i class="fas fa-play"></i></a>
+      </div>
+
+      <div class="vid-img-body">
+        <img src="${userImg}" class="vid-img" alt="" />
+
+        <div class="block">
+          <h3><a href="/post?id=${id}">${title}</a></h3>
+
+          <div class="text">
+            <span>${name}</span>
+           
+            <span>1 month ago</span>
+          </div>
+
+        </div>
+      </div>
+    </article>
+      `
+     
+    }).join('')
+
+
+        }
+        catch(error){
+          console.log(error)
+        }
+
+
+      })
+      </script>
+
+
+
+      <script>
+        scienceBtn.addEventListener('click', async (e) => {
+          e.preventDefault()
+          try {
+          const response = await fetch('/api/v1/article', {
+            method: 'GET',
+            headers: {
+              "Content-Type": 'application/json'
+            }
+          })
+
+          const data = await response.json()
+          const article = data.article
+         
+
+          const scienceFilter = article.filter((science) => {
+            if(science.category === 'science'){
+              return science
+            }
+          })
+          
+       
+          vidSec.innerHTML = scienceFilter.map((item) => {
+      const {_id:id, video, image, title, createdAt, user: {image: userImg, name: name}} = item
+      
+      return `
+      <article class="video-player">
+      <div class="blog">
+        <img src="${image}" class="vid-img" alt="">
+
+        <a href="/post?id=${id}" class="watch"><i class="fas fa-play"></i></a>
+      </div>
+
+      <div class="vid-img-body">
+        <img src="${userImg}" class="vid-img" alt="" />
+
+        <div class="block">
+          <h3><a href="/post?id=${id}">${title}</a></h3>
+
+          <div class="text">
+            <span>${name}</span>
+            
+            <span>1 month ago</span>
+          </div>
+
+        </div>
+      </div>
+    </article>
+      `
+     
+    }).join('')
+
+
+        }
+        catch(error){
+          console.log(error)
+        }
+      
+
+      })
+        </script>
+
+
+
+
+
+         <script>
+       adventureBtn2.addEventListener('click', async (e) => {
+          e.preventDefault()
+          try {
+          const response = await fetch('/api/v1/article', {
+            method: 'GET',
+            headers: {
+              "Content-Type": 'application/json'
+            }
+          })
+
+          const data = await response.json()
+          const article = data.article
+         
+
+          const adventureFilter = article.filter((adventure) => {
+            if(adventure.category === 'adventure'){
+              return adventure
+            }
+          })
+
+          console.log(adventureFilter)
+          vidSec.innerHTML = adventureFilter.map((item) => {
+      const {_id:id, video, image, title, createdAt, user: {image: userImg, name: name}} = item
+      
+      return `
+      <article class="video-player">
+      <div class="blog">
+        <img src="${image}" class="vid-img" alt="">
+
+        <a href="/post?id=${id}" class="watch"><i class="fas fa-play"></i></a>
+      </div>
+
+      <div class="vid-img-body">
+        <img src="${userImg}" class="vid-img" alt="" />
+
+        <div class="block">
+          <h3><a href="/post?id=${id}">${title}</a></h3>
+
+          <div class="text">
+            <span>${name}</span>
+           
+            <span>1 month ago</span>
+          </div>
+
+        </div>
+      </div>
+    </article>
+      `
+     
+    }).join('')
+
+
+        }
+        catch(error){
+          console.log(error)
+        }
+      
+
+      })
+        </script>
+
+
+
+
+
+
+        <script>
+       entBtn.addEventListener('click', async (e) => {
+          e.preventDefault()
+          try {
+          const response = await fetch('/api/v1/article', {
+            method: 'GET',
+            headers: {
+              "Content-Type": 'application/json'
+            }
+          })
+
+          const data = await response.json()
+          const article = data.article
+         
+
+          const sportFilter = article.filter((sport) => {
+            if(sport.category === 'entertainment'){
+              return sport
+            }
+          })
+
+          console.log(sportFilter)
+          vidSec.innerHTML = sportFilter.map((item) => {
+      const {_id:id, video, image, title, createdAt, user: {image: userImg, name: name}} = item
+      
+      return `
+      <article class="video-player">
+      <div class="blog">
+        <img src="${image}" class="vid-img" alt="">
+
+        <a href="/post?id=${id}" class="watch"><i class="fas fa-play"></i></a>
+      </div>
+
+      <div class="vid-img-body">
+        <img src="${userImg}" class="vid-img" alt="" />
+
+        <div class="block">
+          <h3><a href="/post?id=${id}">${title}</a></h3>
+
+          <div class="text">
+            <span>${name}</span>
+           
+            <span>1 month ago</span>
+          </div>
+
+        </div>
+      </div>
+    </article>
+      `
+     
+    }).join('')
+
+
+        }
+        catch(error){
+          console.log(error)
+        }
+      
+
+      })
+        </script>
+
+
+
+
+
+        
+        <script>
+       politicsBtn.addEventListener('click', async (e) => {
+          e.preventDefault()
+          try {
+          const response = await fetch('/api/v1/article', {
+            method: 'GET',
+            headers: {
+              "Content-Type": 'application/json'
+            }
+          })
+
+          const data = await response.json()
+          const article = data.article
+         
+
+          const sportFilter = article.filter((sport) => {
+            if(sport.category === 'politics'){
+              return sport
+            }
+          })
+
+          console.log(sportFilter)
+          vidSec.innerHTML = sportFilter.map((item) => {
+      const {_id:id, video, image, title, createdAt, user: {image: userImg, name: name}} = item
+      
+      return `
+      <article class="video-player">
+      <div class="blog">
+        <img src="${image}" class="vid-img" alt="">
+
+        <a href="/post?id=${id}" class="watch"><i class="fas fa-play"></i></a>
+      </div>
+
+      <div class="vid-img-body">
+        <img src="${userImg}" class="vid-img" alt="" />
+
+        <div class="block">
+          <h3><a href="/post?id=${id}">${title}</a></h3>
+
+          <div class="text">
+            <span>${name}</span>
+          
+            <span>1 month ago</span>
+          </div>
+
+        </div>
+      </div>
+    </article>
+      `
+     
+    }).join('')
+
+
+        }
+        catch(error){
+          console.log(error)
+        }
+      
+
+      })
+        </script>
+    
+
+
+        <script>
+          const all = document.getElementById('all')
+          const adventure = document.getElementById('adventure')
+          const travel = document.getElementById('travel')
+          const lifestyle = document.getElementById('lifestyle')
+          const documentary = document.getElementById('documentary')
+          const tutorials = document.getElementById('tutorials')
+          const beautyTips = document.getElementById('beautytips')
+          const creativity = document.getElementById('creativity')
+          const storyTelling = document.getElementById('storytelling')
+          const scenes = document.getElementById('scenes')
+
+          all.addEventListener('click',async (e) => {
+            e.preventDefault()
+
+            try{
+    const response = await fetch('/api/v1/article', {
+      method: 'GET',
+      headers: {
+        "Content-Type": 'application/json'
+      }
+    })
+
+    let data = await response.json()
+    
+    const article = data.article
+   
+   
+    
+    
+    vidSec.innerHTML = article.map((item) => {
+      const {_id:id, video, image, title, createdAt, user: {image: userImg, name: name}} = item
+      
+      return `
+      <article class="video-player">
+      <div class="blog">
+        <img src="${image}" class="vid-img" alt="">
+
+        <a href="/post?id=${id}" class="watch"><i class="fas fa-play"></i></a>
+      </div>
+
+      <div class="vid-img-body">
+        <img src="${userImg}" class="vid-img" alt="" />
+
+        <div class="block">
+          <h3><a href="/post?id=${id}">${title}</a></h3>
+
+          <div class="text">
+            <span>${name}</span>
+          
+            <span>1 month ago</span>
+          </div>
+
+        </div>
+      </div>
+    </article>
+      `
+     
+    }).join('')
+
+  
+    
+  }
+  catch(error){
+    console.log(error)
+  }
+          })
+
+
+
+
+
+
+
+
+          adventure.addEventListener('click',async (e) => {
+            e.preventDefault()
+
+            try{
+    const response = await fetch('/api/v1/article', {
+      method: 'GET',
+      headers: {
+        "Content-Type": 'application/json'
+      }
+    })
+
+    let data = await response.json()
+    
+    const article = data.article
+    const adventureFilter = article.filter((item) => {
+      if(item.tag === 'adventure'){
+        return item
+      }
+    })
+
+
+
+    console.log(adventureFilter.length)
+
+    if(adventureFilter.length === 0){
+      vidSec.innerHTML = `<p class='message'>Nothing Found</p>`
+    }
+    else {
+      vidSec.innerHTML = adventureFilter.map((item) => {
+      const {_id:id, video, image, title, createdAt, user: {image: userImg, name: name}} = item
+      
+      return `
+      <article class="video-player">
+      <div class="blog">
+        <img src="${image}" class="vid-img" alt="">
+
+        <a href="/post?id=${id}" class="watch"><i class="fas fa-play"></i></a>
+      </div>
+
+      <div class="vid-img-body">
+        <img src="${userImg}" class="vid-img" alt="" />
+
+        <div class="block">
+          <h3><a href="/post?id=${id}">${title}</a></h3>
+
+          <div class="text">
+            <span>${name}</span>
+           
+            <span>1 month ago</span>
+          </div>
+
+        </div>
+      </div>
+    </article>
+      `
+     
+    }).join('')
+    }
+    
+   
+
+  
+    
+  }
+  catch(error){
+    console.log(error)
+  }
+          })
+
+
+
+
+
+
+          travel.addEventListener('click',async (e) => {
+            e.preventDefault()
+
+            try{
+    const response = await fetch('/api/v1/article', {
+      method: 'GET',
+      headers: {
+        "Content-Type": 'application/json'
+      }
+    })
+
+    let data = await response.json()
+    
+    const article = data.article
+    const travelFilter = article.filter((item) => {
+      if(item.tag === 'travel'){
+        return item
+      }
+    })
+
+
+
+    console.log(travelFilter.length)
+
+    if(travelFilter.length === 0){
+      vidSec.innerHTML = `<p class='message'>Nothing Found</p>`
+    }
+    else {
+      vidSec.innerHTML = travelFilter.map((item) => {
+      const {_id:id, video, image, title, createdAt, user: {image: userImg, name: name}} = item
+      
+      return `
+      <article class="video-player">
+      <div class="blog">
+        <img src="${image}" class="vid-img" alt="">
+
+        <a href="/post?id=${id}" class="watch"><i class="fas fa-play"></i></a>
+      </div>
+
+      <div class="vid-img-body">
+        <img src="${userImg}" class="vid-img" alt="" />
+
+        <div class="block">
+          <h3><a href="/post?id=${id}">${title}</a></h3>
+
+          <div class="text">
+            <span>${name}</span>
+          
+            <span>1 month ago</span>
+          </div>
+
+        </div>
+      </div>
+    </article>
+      `
+     
+    }).join('')
+    }
+    
+   
+
+  
+    
+  }
+  catch(error){
+    console.log(error)
+  }
+          })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+         lifestyle.addEventListener('click',async (e) => {
+            e.preventDefault()
+
+            try{
+    const response = await fetch('/api/v1/article', {
+      method: 'GET',
+      headers: {
+        "Content-Type": 'application/json'
+      }
+    })
+
+    let data = await response.json()
+    
+    const article = data.article
+    const lifeFilter = article.filter((item) => {
+      if(item.tag === 'lifestyle'){
+        return item
+      }
+    })
+
+
+
+    console.log(lifeFilter.length)
+
+    if(lifeFilter.length === 0){
+      vidSec.innerHTML = `<p class='message'>Nothing Found</p>`
+    }
+    else {
+      vidSec.innerHTML = lifeFilter.map((item) => {
+      const {_id:id, video, image, title, createdAt, user: {image: userImg, name: name}} = item
+      
+      return `
+      <article class="video-player">
+      <div class="blog">
+        <img src="${image}" class="vid-img" alt="">
+
+        <a href="/post?id=${id}" class="watch"><i class="fas fa-play"></i></a>
+      </div>
+
+      <div class="vid-img-body">
+        <img src="${userImg}" class="vid-img" alt="" />
+
+        <div class="block">
+          <h3><a href="/post?id=${id}">${title}</a></h3>
+
+          <div class="text">
+            <span>${name}</span>
+          
+            <span>1 month ago</span>
+          </div>
+
+        </div>
+      </div>
+    </article>
+      `
+     
+    }).join('')
+    }
+    
+   
+
+  
+    
+  }
+  catch(error){
+    console.log(error)
+  }
+          })
+
+
+
+
+
+
+
+
+
+          scenes.addEventListener('click',async (e) => {
+            e.preventDefault()
+
+            try{
+    const response = await fetch('/api/v1/article', {
+      method: 'GET',
+      headers: {
+        "Content-Type": 'application/json'
+      }
+    })
+
+    let data = await response.json()
+    
+    const article = data.article
+    const scenesFilter = article.filter((item) => {
+      if(item.tag === 'scenes'){
+        return item
+      }
+    })
+
+
+
+    console.log(scenesFilter.length)
+
+    if(scenesFilter.length === 0){
+      vidSec.innerHTML = `<p class='message'>Nothing Found</p>`
+    }
+    else {
+      vidSec.innerHTML = scenesFilter.map((item) => {
+      const {_id:id, video, image, title, createdAt, user: {image: userImg, name: name}} = item
+      
+      return `
+      <article class="video-player">
+      <div class="blog">
+        <img src="${image}" class="vid-img" alt="">
+
+        <a href="/post?id=${id}" class="watch"><i class="fas fa-play"></i></a>
+      </div>
+
+      <div class="vid-img-body">
+        <img src="${userImg}" class="vid-img" alt="" />
+
+        <div class="block">
+          <h3><a href="/post?id=${id}">${title}</a></h3>
+
+          <div class="text">
+            <span>${name}</span>
+           
+            <span>1 month ago</span>
+          </div>
+
+        </div>
+      </div>
+    </article>
+      `
+     
+    }).join('')
+    }
+    
+   
+
+  
+    
+  }
+  catch(error){
+    console.log(error)
+  }
+          })
+
+
+
+
+
+          storyTelling.addEventListener('click',async (e) => {
+            e.preventDefault()
+
+            try{
+    const response = await fetch('/api/v1/article', {
+      method: 'GET',
+      headers: {
+        "Content-Type": 'application/json'
+      }
+    })
+
+    let data = await response.json()
+    
+    const article = data.article
+    const storyFilter = article.filter((item) => {
+      if(item.tag === 'storytelling'){
+        return item
+      }
+    })
+
+
+
+    console.log(storyFilter.length)
+
+    if(storyFilter.length === 0){
+      vidSec.innerHTML = `<p class='message'>Nothing Found</p>`
+    }
+    else {
+      vidSec.innerHTML = storyFilter.map((item) => {
+      const {_id:id, video, image, title, createdAt, user: {image: userImg, name: name}} = item
+      
+      return `
+      <article class="video-player">
+      <div class="blog">
+        <img src="${image}" class="vid-img" alt="">
+
+        <a href="/post?id=${id}" class="watch"><i class="fas fa-play"></i></a>
+      </div>
+
+      <div class="vid-img-body">
+        <img src="${userImg}" class="vid-img" alt="" />
+
+        <div class="block">
+          <h3><a href="/post?id=${id}">${title}</a></h3>
+
+          <div class="text">
+            <span>${name}</span>
+            
+            <span>1 month ago</span>
+          </div>
+
+        </div>
+      </div>
+    </article>
+      `
+     
+    }).join('')
+    }
+    
+   
+
+  
+    
+  }
+  catch(error){
+    console.log(error)
+  }
+          })
+
+
+
+
+
+
+
+          creativity.addEventListener('click',async (e) => {
+            e.preventDefault()
+
+            try{
+    const response = await fetch('/api/v1/article', {
+      method: 'GET',
+      headers: {
+        "Content-Type": 'application/json'
+      }
+    })
+
+    let data = await response.json()
+    
+    const article = data.article
+    const creativityFilter = article.filter((item) => {
+      if(item.tag === 'creativity'){
+        return item
+      }
+    })
+
+
+
+    console.log(creativityFilter.length)
+
+    if(creativityFilter.length === 0){
+      vidSec.innerHTML = `<p class='message'>Nothing Found</p>`
+    }
+    else {
+      vidSec.innerHTML = creativityFilter.map((item) => {
+      const {_id:id, video, image, title, createdAt, user: {image: userImg, name: name}} = item
+      
+      return `
+      <article class="video-player">
+      <div class="blog">
+        <img src="${image}" class="vid-img" alt="">
+
+        <a href="/post?id=${id}" class="watch"><i class="fas fa-play"></i></a>
+      </div>
+
+      <div class="vid-img-body">
+        <img src="${userImg}" class="vid-img" alt="" />
+
+        <div class="block">
+          <h3><a href="/post?id=${id}">${title}</a></h3>
+
+          <div class="text">
+            <span>${name}</span>
+           
+            <span>1 month ago</span>
+          </div>
+
+        </div>
+      </div>
+    </article>
+      `
+     
+    }).join('')
+    }
+    
+   
+
+  
+    
+  }
+  catch(error){
+    console.log(error)
+  }
+          })
+
+
+
+
+          beautyTips.addEventListener('click',async (e) => {
+            e.preventDefault()
+
+            try{
+    const response = await fetch('/api/v1/article', {
+      method: 'GET',
+      headers: {
+        "Content-Type": 'application/json'
+      }
+    })
+
+    let data = await response.json()
+    
+    const article = data.article
+    const beautyFilter = article.filter((item) => {
+      if(item.tag === 'beautytips'){
+        return item
+      }
+    })
+
+
+
+    console.log(beautyFilter.length)
+
+    if(beautyFilter.length === 0){
+      vidSec.innerHTML = `<p class='message'>Nothing Found</p>`
+    }
+    else {
+      vidSec.innerHTML = beautyFilter.map((item) => {
+      const {_id:id, video, image, title, createdAt, user: {image: userImg, name: name}} = item
+      
+      return `
+      <article class="video-player">
+      <div class="blog">
+        <img src="${image}" class="vid-img" alt="">
+
+        <a href="/post?id=${id}" class="watch"><i class="fas fa-play"></i></a>
+      </div>
+
+      <div class="vid-img-body">
+        <img src="${userImg}" class="vid-img" alt="" />
+
+        <div class="block">
+          <h3><a href="/post?id=${id}">${title}</a></h3>
+
+          <div class="text">
+            <span>${name}</span>
+            
+            <span>1 month ago</span>
+          </div>
+
+        </div>
+      </div>
+    </article>
+      `
+     
+    }).join('')
+    }
+    
+   
+
+  
+    
+  }
+  catch(error){
+    console.log(error)
+  }
+          })
+
+
+
+
+
+
+          tutorials.addEventListener('click',async (e) => {
+            e.preventDefault()
+
+            try{
+    const response = await fetch('/api/v1/article', {
+      method: 'GET',
+      headers: {
+        "Content-Type": 'application/json'
+      }
+    })
+
+    let data = await response.json()
+    
+    const article = data.article
+    const tutorialsFilter = article.filter((item) => {
+      if(item.tag === 'tutorials'){
+        return item
+      }
+    })
+
+
+
+    console.log(tutorialsFilter.length)
+
+    if(tutorialsFilter.length === 0){
+      vidSec.innerHTML = `<p class='message'>Nothing Found</p>`
+    }
+    else {
+      vidSec.innerHTML = tutorialsFilter.map((item) => {
+      const {_id:id, video, image, title, createdAt, user: {image: userImg, name: name}} = item
+      
+      return `
+      <article class="video-player">
+      <div class="blog">
+        <img src="${image}" class="vid-img" alt="">
+
+        <a href="/post?id=${id}" class="watch"><i class="fas fa-play"></i></a>
+      </div>
+
+      <div class="vid-img-body">
+        <img src="${userImg}" class="vid-img" alt="" />
+
+        <div class="block">
+          <h3><a href="/post?id=${id}">${title}</a></h3>
+
+          <div class="text">
+            <span>${name}</span>
+           
+            <span>1 month ago</span>
+          </div>
+
+        </div>
+      </div>
+    </article>
+      `
+     
+    }).join('')
+    }
+    
+   
+
+  
+    
+  }
+  catch(error){
+    console.log(error)
+  }
+          })
+
+
+
+
+
+          documentary.addEventListener('click',async (e) => {
+            e.preventDefault()
+
+            try{
+    const response = await fetch('/api/v1/article', {
+      method: 'GET',
+      headers: {
+        "Content-Type": 'application/json'
+      }
+    })
+
+    let data = await response.json()
+    
+    const article = data.article
+    const documentaryFilter = article.filter((item) => {
+      if(item.tag === 'documentary'){
+        return item
+      }
+    })
+
+
+
+    console.log(documentaryFilter.length)
+
+    if(documentaryFilter.length === 0){
+      vidSec.innerHTML = `<p class='message'>Nothing Found</p>`
+    }
+    else {
+      vidSec.innerHTML = documentaryFilter.map((item) => {
+      const {_id:id, video, image, title, createdAt, user: {image: userImg, name: name}} = item
+      
+      return `
+      <article class="video-player">
+      <div class="blog">
+        <img src="${image}" class="vid-img" alt="">
+
+        <a href="/post?id=${id}" class="watch"><i class="fas fa-play"></i></a>
+      </div>
+
+      <div class="vid-img-body">
+        <img src="${userImg}" class="vid-img" alt="" />
+
+        <div class="block">
+          <h3><a href="/post?id=${id}">${title}</a></h3>
+
+          <div class="text">
+            <span>${name}</span>
+          
+            <span>1 month ago</span>
+          </div>
+
+        </div>
+      </div>
+    </article>
+      `
+     
+    }).join('')
+    }
+    
+   
+
+  
+    
+  }
+  catch(error){
+    console.log(error)
+  }
+          })
+        
+          </script>
+
+</body>
+
+</html>
