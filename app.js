@@ -74,6 +74,9 @@ app.get('/test', (req, res) => {
 app.get('/post', (req, res) => {
     res.sendFile(path.resolve(__dirname, './public/post.html'))
 })
+app.get('/home', (req, res) => {
+    res.sendFile(path.resolve(__dirname, './public/index.html'))
+})
 
 
 
