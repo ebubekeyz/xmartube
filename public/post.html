@@ -114,7 +114,7 @@
           <div class="text">
             <span class="name"></span>
             <span class="views"></span>
-            <span class="date">1 month ago</span>
+            <span class="date"></span>
           </div>
     
          </div>
@@ -375,7 +375,36 @@ back.style.display = "none";
         const {_id:id, video, image, title, createdAt, user: {image: userImg, name: name}} = item
 
 
-       
+        let date = new Date(createdAt)
+    
+   
+    var dateToday = new Date()
+
+   
+if(date.getDate() === dateToday.getDate()){
+  date = 'Today'
+}
+if(date.getDate() === dateToday.getDate() - 1){
+  date = 'Yesterday'
+}
+else if(date.getDate() === dateToday.getDate() - 7){
+  date = '1 week ago'
+}
+else if(date.getDate() === dateToday.getDate() - 14){
+  date = 'Two weeks ago'
+}
+else if(date.getDate() === dateToday.getDate() - 21){
+  date = 'Three weeks ago'
+}
+else if(date.getDate() === dateToday.getDate() - 30){
+  date = '1 month ago'
+}
+
+else {
+  date = 'Days back'
+}
+console.log(date)
+   
         return `
         <article class="post-player">
           <div class="blog">
@@ -393,7 +422,7 @@ back.style.display = "none";
          <div class="text">
            <span>${name}</span>
           
-           <span>1 month ago</span>
+           <span>${date}</span>
          </div>
    
         </div>
@@ -443,6 +472,37 @@ const mainFunc = async () => {
 
       const {_id:id, image, video, title, createdAt, user: {name:name, image:userImg}} = article
 
+      let date2 = new Date(createdAt)
+    
+   
+    var dateToday2 = new Date()
+
+   
+if(date2.getDate() === dateToday2.getDate()){
+  date = 'Today'
+}
+if(date2.getDate() === dateToday2.getDate() - 1){
+  date2 = 'Yesterday'
+}
+else if(date2.getDate() === dateToday2.getDate() - 7){
+  date = '1 week ago'
+}
+else if(date2.getDate() === dateToday2.getDate() - 14){
+  date = 'Two weeks ago'
+}
+else if(date2.getDate() === dateToday2.getDate() - 21){
+  date = 'Three weeks ago'
+}
+else if(date2.getDate() === dateToday2.getDate() - 30){
+  date2 = '1 month ago'
+}
+
+else {
+  date2 = 'Days back'
+}
+console.log(date2)
+   
+
       const names = document.querySelector('.name')
       const titles = document.querySelector('.title')
       const views = document.querySelector('.views')
@@ -453,6 +513,7 @@ const mainFunc = async () => {
       vidImg.src = userImg
       titles.textContent = title
       names.textContent = name
+      date.textContent = `${date2}`
       vidTest.src = video
       vidTest.setAttribute('poster', `${image}`)
 
@@ -587,6 +648,35 @@ viewsFunc()
         else{
           vidSec.innerHTML = searchStore.map((item) => {
         const {_id:id, video, image, title, createdAt, user: {image: userImg, name: name}} = item
+        let date = new Date(createdAt)
+    
+   
+    var dateToday = new Date()
+
+   
+if(date.getDate() === dateToday.getDate()){
+  date = 'Today'
+}
+if(date.getDate() === dateToday.getDate() - 1){
+  date = 'Yesterday'
+}
+else if(date.getDate() === dateToday.getDate() - 7){
+  date = '1 week ago'
+}
+else if(date.getDate() === dateToday.getDate() - 14){
+  date = 'Two weeks ago'
+}
+else if(date.getDate() === dateToday.getDate() - 21){
+  date = 'Three weeks ago'
+}
+else if(date.getDate() === dateToday.getDate() - 30){
+  date = '1 month ago'
+}
+
+else {
+  date = 'Days back'
+}
+console.log(date)
         
         return `
         <article class="post-player">
@@ -604,7 +694,7 @@ viewsFunc()
    
          <div class="text">
            <span>${name}</span>
-           <span>1 month ago</span>
+          <span>${date}</span>
          </div>
    
         </div>
@@ -666,6 +756,35 @@ viewsFunc()
    
       vidSec.innerHTML = sportFilter.map((item) => {
   const {_id:id, video, image, title, createdAt, user: {image: userImg, name: name}} = item
+  let date = new Date(createdAt)
+    
+   
+    var dateToday = new Date()
+
+   
+if(date.getDate() === dateToday.getDate()){
+  date = 'Today'
+}
+if(date.getDate() === dateToday.getDate() - 1){
+  date = 'Yesterday'
+}
+else if(date.getDate() === dateToday.getDate() - 7){
+  date = '1 week ago'
+}
+else if(date.getDate() === dateToday.getDate() - 14){
+  date = 'Two weeks ago'
+}
+else if(date.getDate() === dateToday.getDate() - 21){
+  date = 'Three weeks ago'
+}
+else if(date.getDate() === dateToday.getDate() - 30){
+  date = '1 month ago'
+}
+
+else {
+  date = 'Days back'
+}
+console.log(date)
   
   return `
   <article class="post-player">
@@ -683,7 +802,7 @@ viewsFunc()
    
          <div class="text">
            <span>${name}</span>
-           <span>1 month ago</span>
+          <span>${date}</span>
          </div>
    
         </div>
@@ -729,6 +848,35 @@ viewsFunc()
    
       vidSec.innerHTML = sportFilter.map((item) => {
   const {_id:id, video, image, title, createdAt, user: {image: userImg, name: name}} = item
+  let date = new Date(createdAt)
+    
+   
+    var dateToday = new Date()
+
+   
+if(date.getDate() === dateToday.getDate()){
+  date = 'Today'
+}
+if(date.getDate() === dateToday.getDate() - 1){
+  date = 'Yesterday'
+}
+else if(date.getDate() === dateToday.getDate() - 7){
+  date = '1 week ago'
+}
+else if(date.getDate() === dateToday.getDate() - 14){
+  date = 'Two weeks ago'
+}
+else if(date.getDate() === dateToday.getDate() - 21){
+  date = 'Three weeks ago'
+}
+else if(date.getDate() === dateToday.getDate() - 30){
+  date = '1 month ago'
+}
+
+else {
+  date = 'Days back'
+}
+console.log(date)
   
   return `
   <article class="post-player">
@@ -746,7 +894,7 @@ viewsFunc()
    
          <div class="text">
            <span>${name}</span>
-           <span>1 month ago</span>
+          <span>${date}</span>
          </div>
    
         </div>
@@ -794,6 +942,35 @@ viewsFunc()
      
       vidSec.innerHTML = sportFilter.map((item) => {
   const {_id:id, video, image, title, createdAt, user: {image: userImg, name: name}} = item
+  let date = new Date(createdAt)
+    
+   
+    var dateToday = new Date()
+
+   
+if(date.getDate() === dateToday.getDate()){
+  date = 'Today'
+}
+if(date.getDate() === dateToday.getDate() - 1){
+  date = 'Yesterday'
+}
+else if(date.getDate() === dateToday.getDate() - 7){
+  date = '1 week ago'
+}
+else if(date.getDate() === dateToday.getDate() - 14){
+  date = 'Two weeks ago'
+}
+else if(date.getDate() === dateToday.getDate() - 21){
+  date = 'Three weeks ago'
+}
+else if(date.getDate() === dateToday.getDate() - 30){
+  date = '1 month ago'
+}
+
+else {
+  date = 'Days back'
+}
+console.log(date)
   
   return `
   <article class="post-player">
@@ -811,7 +988,7 @@ viewsFunc()
    
          <div class="text">
            <span>${name}</span>
-           <span>1 month ago</span>
+          <span>${date}</span>
          </div>
    
         </div>
@@ -860,6 +1037,35 @@ viewsFunc()
 
       vidSec.innerHTML = sportFilter.map((item) => {
   const {_id:id, video, image, title, createdAt, user: {image: userImg, name: name}} = item
+  let date = new Date(createdAt)
+    
+   
+    var dateToday = new Date()
+
+   
+if(date.getDate() === dateToday.getDate()){
+  date = 'Today'
+}
+if(date.getDate() === dateToday.getDate() - 1){
+  date = 'Yesterday'
+}
+else if(date.getDate() === dateToday.getDate() - 7){
+  date = '1 week ago'
+}
+else if(date.getDate() === dateToday.getDate() - 14){
+  date = 'Two weeks ago'
+}
+else if(date.getDate() === dateToday.getDate() - 21){
+  date = 'Three weeks ago'
+}
+else if(date.getDate() === dateToday.getDate() - 30){
+  date = '1 month ago'
+}
+
+else {
+  date = 'Days back'
+}
+console.log(date)
   
   return `
   <article class="post-player">
@@ -877,7 +1083,7 @@ viewsFunc()
    
          <div class="text">
            <span>${name}</span>
-           <span>1 month ago</span>
+          <span>${date}</span>
          </div>
    
         </div>
@@ -926,6 +1132,35 @@ viewsFunc()
      
       vidSec.innerHTML = sportFilter.map((item) => {
   const {_id:id, video, image, title, createdAt, user: {image: userImg, name: name}} = item
+  let date = new Date(createdAt)
+    
+   
+    var dateToday = new Date()
+
+   
+if(date.getDate() === dateToday.getDate()){
+  date = 'Today'
+}
+if(date.getDate() === dateToday.getDate() - 1){
+  date = 'Yesterday'
+}
+else if(date.getDate() === dateToday.getDate() - 7){
+  date = '1 week ago'
+}
+else if(date.getDate() === dateToday.getDate() - 14){
+  date = 'Two weeks ago'
+}
+else if(date.getDate() === dateToday.getDate() - 21){
+  date = 'Three weeks ago'
+}
+else if(date.getDate() === dateToday.getDate() - 30){
+  date = '1 month ago'
+}
+
+else {
+  date = 'Days back'
+}
+console.log(date)
   
   return `
   <article class="post-player">
@@ -943,7 +1178,7 @@ viewsFunc()
    
          <div class="text">
            <span>${name}</span>
-           <span>1 month ago</span>
+          <span>${date}</span>
          </div>
    
         </div>
@@ -1018,7 +1253,7 @@ return `
    
          <div class="text">
            <span>${name}</span>
-           <span>1 month ago</span>
+          <span>${date}</span>
          </div>
    
         </div>
@@ -1073,6 +1308,35 @@ vidSec.innerHTML = `<p class='message2'>Nothing Found</p>`
 else {
 vidSec.innerHTML = adventureFilter.map((item) => {
 const {_id:id, video, image, title, createdAt, user: {image: userImg, name: name}} = item
+let date = new Date(createdAt)
+    
+   
+    var dateToday = new Date()
+
+   
+if(date.getDate() === dateToday.getDate()){
+  date = 'Today'
+}
+if(date.getDate() === dateToday.getDate() - 1){
+  date = 'Yesterday'
+}
+else if(date.getDate() === dateToday.getDate() - 7){
+  date = '1 week ago'
+}
+else if(date.getDate() === dateToday.getDate() - 14){
+  date = 'Two weeks ago'
+}
+else if(date.getDate() === dateToday.getDate() - 21){
+  date = 'Three weeks ago'
+}
+else if(date.getDate() === dateToday.getDate() - 30){
+  date = '1 month ago'
+}
+
+else {
+  date = 'Days back'
+}
+console.log(date)
 
 return `
 <article class="post-player">
@@ -1090,7 +1354,7 @@ return `
    
          <div class="text">
            <span>${name}</span>
-           <span>1 month ago</span>
+          <span>${date}</span>
          </div>
    
         </div>
@@ -1146,6 +1410,35 @@ vidSec.innerHTML = `<p class='message2'>Nothing Found</p>`
 else {
 vidSec.innerHTML = travelFilter.map((item) => {
 const {_id:id, video, image, title, createdAt, user: {image: userImg, name: name}} = item
+let date = new Date(createdAt)
+    
+   
+    var dateToday = new Date()
+
+   
+if(date.getDate() === dateToday.getDate()){
+  date = 'Today'
+}
+if(date.getDate() === dateToday.getDate() - 1){
+  date = 'Yesterday'
+}
+else if(date.getDate() === dateToday.getDate() - 7){
+  date = '1 week ago'
+}
+else if(date.getDate() === dateToday.getDate() - 14){
+  date = 'Two weeks ago'
+}
+else if(date.getDate() === dateToday.getDate() - 21){
+  date = 'Three weeks ago'
+}
+else if(date.getDate() === dateToday.getDate() - 30){
+  date = '1 month ago'
+}
+
+else {
+  date = 'Days back'
+}
+console.log(date)
 
 return `
 <article class="post-player">
@@ -1163,7 +1456,7 @@ return `
    
          <div class="text">
            <span>${name}</span>
-           <span>1 month ago</span>
+          <span>${date}</span>
          </div>
    
         </div>
@@ -1227,6 +1520,35 @@ vidSec.innerHTML = `<p class='message2'>Nothing Found</p>`
 else {
 vidSec.innerHTML = lifeFilter.map((item) => {
 const {_id:id, video, image, title, createdAt, user: {image: userImg, name: name}} = item
+let date = new Date(createdAt)
+    
+   
+    var dateToday = new Date()
+
+   
+if(date.getDate() === dateToday.getDate()){
+  date = 'Today'
+}
+if(date.getDate() === dateToday.getDate() - 1){
+  date = 'Yesterday'
+}
+else if(date.getDate() === dateToday.getDate() - 7){
+  date = '1 week ago'
+}
+else if(date.getDate() === dateToday.getDate() - 14){
+  date = 'Two weeks ago'
+}
+else if(date.getDate() === dateToday.getDate() - 21){
+  date = 'Three weeks ago'
+}
+else if(date.getDate() === dateToday.getDate() - 30){
+  date = '1 month ago'
+}
+
+else {
+  date = 'Days back'
+}
+console.log(date)
 
 return `
 <article class="post-player">
@@ -1244,7 +1566,7 @@ return `
    
          <div class="text">
            <span>${name}</span>
-           <span>1 month ago</span>
+          <span>${date}</span>
          </div>
    
         </div>
@@ -1303,7 +1625,35 @@ vidSec.innerHTML = `<p class='message2'>Nothing Found</p>`
 else {
 vidSec.innerHTML = scenesFilter.map((item) => {
 const {_id:id, video, image, title, createdAt, user: {image: userImg, name: name}} = item
+let date = new Date(createdAt)
+    
+   
+    var dateToday = new Date()
 
+   
+if(date.getDate() === dateToday.getDate()){
+  date = 'Today'
+}
+if(date.getDate() === dateToday.getDate() - 1){
+  date = 'Yesterday'
+}
+else if(date.getDate() === dateToday.getDate() - 7){
+  date = '1 week ago'
+}
+else if(date.getDate() === dateToday.getDate() - 14){
+  date = 'Two weeks ago'
+}
+else if(date.getDate() === dateToday.getDate() - 21){
+  date = 'Three weeks ago'
+}
+else if(date.getDate() === dateToday.getDate() - 30){
+  date = '1 month ago'
+}
+
+else {
+  date = 'Days back'
+}
+console.log(date)
 return `
 <article class="post-player">
           <div class="blog">
@@ -1320,7 +1670,7 @@ return `
    
          <div class="text">
            <span>${name}</span>
-           <span>1 month ago</span>
+          <span>${date}</span>
          </div>
    
         </div>
@@ -1375,6 +1725,35 @@ vidSec.innerHTML = `<p class='message2'>Nothing Found</p>`
 else {
 vidSec.innerHTML = storyFilter.map((item) => {
 const {_id:id, video, image, title, createdAt, user: {image: userImg, name: name}} = item
+let date = new Date(createdAt)
+    
+   
+    var dateToday = new Date()
+
+   
+if(date.getDate() === dateToday.getDate()){
+  date = 'Today'
+}
+if(date.getDate() === dateToday.getDate() - 1){
+  date = 'Yesterday'
+}
+else if(date.getDate() === dateToday.getDate() - 7){
+  date = '1 week ago'
+}
+else if(date.getDate() === dateToday.getDate() - 14){
+  date = 'Two weeks ago'
+}
+else if(date.getDate() === dateToday.getDate() - 21){
+  date = 'Three weeks ago'
+}
+else if(date.getDate() === dateToday.getDate() - 30){
+  date = '1 month ago'
+}
+
+else {
+  date = 'Days back'
+}
+console.log(date)
 
 return `
 <article class="post-player">
@@ -1392,7 +1771,7 @@ return `
    
          <div class="text">
            <span>${name}</span>
-           <span>1 month ago</span>
+          <span>${date}</span>
          </div>
    
         </div>
@@ -1448,6 +1827,35 @@ vidSec.innerHTML = `<p class='message2'>Nothing Found</p>`
 else {
 vidSec.innerHTML = creativityFilter.map((item) => {
 const {_id:id, video, image, title, createdAt, user: {image: userImg, name: name}} = item
+let date = new Date(createdAt)
+    
+   
+    var dateToday = new Date()
+
+   
+if(date.getDate() === dateToday.getDate()){
+  date = 'Today'
+}
+if(date.getDate() === dateToday.getDate() - 1){
+  date = 'Yesterday'
+}
+else if(date.getDate() === dateToday.getDate() - 7){
+  date = '1 week ago'
+}
+else if(date.getDate() === dateToday.getDate() - 14){
+  date = 'Two weeks ago'
+}
+else if(date.getDate() === dateToday.getDate() - 21){
+  date = 'Three weeks ago'
+}
+else if(date.getDate() === dateToday.getDate() - 30){
+  date = '1 month ago'
+}
+
+else {
+  date = 'Days back'
+}
+console.log(date)
 
 return `
 <article class="post-player">
@@ -1465,7 +1873,7 @@ return `
    
          <div class="text">
            <span>${name}</span>
-           <span>1 month ago</span>
+          <span>${date}</span>
          </div>
    
         </div>
@@ -1519,6 +1927,35 @@ vidSec.innerHTML = `<p class='message2'>Nothing Found</p>`
 else {
 vidSec.innerHTML = beautyFilter.map((item) => {
 const {_id:id, video, image, title, createdAt, user: {image: userImg, name: name}} = item
+let date = new Date(createdAt)
+    
+   
+    var dateToday = new Date()
+
+   
+if(date.getDate() === dateToday.getDate()){
+  date = 'Today'
+}
+if(date.getDate() === dateToday.getDate() - 1){
+  date = 'Yesterday'
+}
+else if(date.getDate() === dateToday.getDate() - 7){
+  date = '1 week ago'
+}
+else if(date.getDate() === dateToday.getDate() - 14){
+  date = 'Two weeks ago'
+}
+else if(date.getDate() === dateToday.getDate() - 21){
+  date = 'Three weeks ago'
+}
+else if(date.getDate() === dateToday.getDate() - 30){
+  date = '1 month ago'
+}
+
+else {
+  date = 'Days back'
+}
+console.log(date)
 
 return `
 <article class="post-player">
@@ -1536,7 +1973,7 @@ return `
    
          <div class="text">
            <span>${name}</span>
-           <span>1 month ago</span>
+          <span>${date}</span>
          </div>
    
         </div>
@@ -1592,6 +2029,35 @@ vidSec.innerHTML = `<p class='message2'>Nothing Found</p>`
 else {
 vidSec.innerHTML = tutorialsFilter.map((item) => {
 const {_id:id, video, image, title, createdAt, user: {image: userImg, name: name}} = item
+let date = new Date(createdAt)
+    
+   
+    var dateToday = new Date()
+
+   
+if(date.getDate() === dateToday.getDate()){
+  date = 'Today'
+}
+if(date.getDate() === dateToday.getDate() - 1){
+  date = 'Yesterday'
+}
+else if(date.getDate() === dateToday.getDate() - 7){
+  date = '1 week ago'
+}
+else if(date.getDate() === dateToday.getDate() - 14){
+  date = 'Two weeks ago'
+}
+else if(date.getDate() === dateToday.getDate() - 21){
+  date = 'Three weeks ago'
+}
+else if(date.getDate() === dateToday.getDate() - 30){
+  date = '1 month ago'
+}
+
+else {
+  date = 'Days back'
+}
+console.log(date)
 
 return `
 <article class="post-player">
@@ -1609,7 +2075,7 @@ return `
    
          <div class="text">
            <span>${name}</span>
-           <span>1 month ago</span>
+          <span>${date}</span>
          </div>
    
         </div>
@@ -1664,6 +2130,35 @@ vidSec.innerHTML = `<p class='message2'>Nothing Found</p>`
 else {
 vidSec.innerHTML = documentaryFilter.map((item) => {
 const {_id:id, video, image, title, createdAt, user: {image: userImg, name: name}} = item
+let date = new Date(createdAt)
+    
+   
+    var dateToday = new Date()
+
+   
+if(date.getDate() === dateToday.getDate()){
+  date = 'Today'
+}
+if(date.getDate() === dateToday.getDate() - 1){
+  date = 'Yesterday'
+}
+else if(date.getDate() === dateToday.getDate() - 7){
+  date = '1 week ago'
+}
+else if(date.getDate() === dateToday.getDate() - 14){
+  date = 'Two weeks ago'
+}
+else if(date.getDate() === dateToday.getDate() - 21){
+  date = 'Three weeks ago'
+}
+else if(date.getDate() === dateToday.getDate() - 30){
+  date = '1 month ago'
+}
+
+else {
+  date = 'Days back'
+}
+console.log(date)
 
 return `
 <article class="post-player">
@@ -1681,7 +2176,7 @@ return `
    
          <div class="text">
            <span>${name}</span>
-           <span>1 month ago</span>
+          <span>${date}</span>
          </div>
    
         </div>
