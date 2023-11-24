@@ -469,6 +469,7 @@ nav {
    Videos
     ===============
     */
+  
 .vid-img {
   width: 100%;
   height: 15rem;
@@ -756,9 +757,15 @@ margin: 0 auto;
 }
 
 
-.vid-comment {
+/* .vid-comment {
   display: grid;
   grid-template-columns: 10% 90%;
+
+} */
+
+.vid-comment {
+  display: grid;
+  grid-template-columns: 90% 10%;
 
 }
 
@@ -766,7 +773,19 @@ margin: 0 auto;
 margin: 0.4rem 0;
 }
 
+#image-vid {
+  display: none;
+}
+
 @media screen and (min-width: 1200px){
+  .vid-comment {
+  display: grid;
+  grid-template-columns: 10% 90%;
+
+}
+#image-vid {
+  display: block;
+}
   .comment-box {
     display: block;
     padding: 0 1.2rem;
