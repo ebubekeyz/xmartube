@@ -765,7 +765,7 @@ margin: 0 auto;
 
 .vid-comment {
   display: grid;
-  grid-template-columns: 90% 10%;
+  grid-template-columns: 12% 88%
 
 }
 
@@ -773,9 +773,7 @@ margin: 0 auto;
 margin: 0.4rem 0;
 }
 
-#image-vid {
-  display: none;
-}
+
 
 @media screen and (min-width: 1200px){
   .vid-comment {
