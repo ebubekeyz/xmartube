@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>xmartube || Capturing Moments, Creating Memories</title>
+
+  <!-- meta tags for seo -->
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="title" content="Uncover the Stories, Ignite Your Imagination" />
+  <meta name="description"
+    content="xmartube is more than just a platform; it's a community. We believe in the power of storytelling, and your opinion is valued here. Share your experiences, insights, and passions with a global audience eager to connect and engage." />
+  <meta property="og:description"
+    content="xmartube is more than just a platform; it's a community. We believe in the power of storytelling, and your opinion is valued here. Share your experiences, insights, and passions with a global audience eager to connect and engage." />
+  <meta property="og:title" content="Uncover the Stories and Ignite Your Imagination from xmartube" />
+  <!-- <meta property="og:image" content="./images"/> -->
+  <meta name="keywords" content="Video Blog,
+      Vlog,
+      Video Content,
+      Lifestyle Vlogging,
+      Travel Vlogs,
+      Tech Reviews,
+      DIY Videos,
+      How-to Tutorials,
+      Adventure Vlogs,
+      Foodie Vlogs,
+      Fashion Vlogs,
+      Beauty Tips Videos,
+      Fitness Vlogs,
+      Personal Storytelling,
+      Creative Exploration,
+      Documentary Videos,
+      Behind the Scenes,
+      Daily Vlog,
+      Exclusive Interviews,
+      User-Generated Content" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="language" content="English" />
+  <meta name="author" content="xmartube" />
+
+  <!-- links -->
+  <!-- css -->
+  <link rel="stylesheet" href="./css/chat.css" />
+
+  <!-- fontawesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+</head>
+<body>
+    <section clss="chat-section">
+        <form class="chat-center" id="chat-center">
+            <h2 class="title"> Subscribe</h2>
+            <input type="text" class="subscribe-input" id="sub-input">
+            <button type="submit" class="subscribe-btn btn" id="sub-btn-reg">Subscribe</button>
+            <p>Already Subscribed? <span class="login">Click here to login</span></p>
+        </form>
+
+       
+
+        <form class="chat-center" id="chat-center2" >
+            <h2 class="title"> Login</h2>
+            <input type="text" class="subscribe-input" id="sub-input2">
+            <button type="submit" class="subscribe-btn btn" id="sub-btn-log">Login</button>
+            <p>Havent Subscribed? <span class="register">Click here to Subscribe</span></p>
+        </form>
+    </section>
+
+    <script>
+        const chatCenter = document.querySelector('#chat-center')
+        const chatCenter2 = document.querySelector('#chat-center2')
+        const login = document.querySelector('.login')
+        const register = document.querySelector('.register')
+        const subscribe = document.querySelector('#sub-btn-reg')
+        const subLogin = document.querySelector('#sub-btn-log')
+         const subInput2 = document.querySelector('#sub-input2')
+        const subInput = document.querySelector('#sub-input')
+      
+
+      
+        login.addEventListener('click',() => {
+            chatCenter2.style.display = 'block'
+            chatCenter.style.display = 'none'
+        })
+        register.addEventListener('click',() => {
+            chatCenter2.style.display = 'none'
+            chatCenter.style.display = 'block'
+        })
+
+        
+
+        subscribe.addEventListener('click', async(e) => {
+            e.preventDefault()
+            const email = subInput.value
+            subscribe.textContent = 'Sending...'
+            try{
+                const response = await fetch('/api/v1/subscribe', {
+                    method: 'POST',
+                    headers: {
+                        "Content-Type":'application/json'
+                    },
+                    body: JSON.stringify({email})
+                })
+
+                if(response.status === 201){
+                    subInput.value = ''
+                    subscribe.textContent = 'Subscribed'
+                    window.history.back()
+                }
+                else {
+                    subscribe.textContent = 'Subscribe'
+                }
+            }
+            catch(error){
+                console.log(error)
+            }
+        })
+
+
+        
+         subLogin.addEventListener('click', async(e) => {
+            e.preventDefault()
+            const email = subInput2.value
+            console.log(email)
+            subLogin.textContent = 'Sending...'
+            try{
+                const response = await fetch('/api/v1/subscribe/login', {
+                    method: 'POST',
+                    headers: {
+                        "Content-Type":'application/json'
+                    },
+                    body: JSON.stringify({email})
+                })
+
+                if(response.status === 200){
+                    subInput.value = ''
+                    subLogin.textContent = 'logged in'
+                    window.history.back()
+                }
+                else {
+                    subLogin.textContent = 'Login'
+                }
+            }
+            catch(error){
+                console.log(error)
+            }
+        })
+
+
+    </script>
+
+    
+</body>
+</html>

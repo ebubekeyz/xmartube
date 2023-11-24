@@ -8,6 +8,8 @@ const path = require('path');
 const express = require('express');
 const app = express();
 
+const {authenticateUser} = require('./middleware/authentication2')
+
 
 const fileUpload = require('express-fileupload')
 const cloudinary = require('cloudinary').v2
@@ -25,6 +27,8 @@ const userRouter = require('./routes/userRoutes')
 const uploadRouter = require('./routes/uploadRoutes')
 const articleRouter = require('./routes/articleRoutes')
 const viewsRouter = require('./routes/viewsRoutes')
+const subscribeRouter = require('./routes/subscribeRoutes')
+const chatRouter = require('./routes/chatRoutes')
 
 const cookieParser = require('cookie-parser');
 
@@ -66,16 +70,25 @@ app.use('/api/v1/users', userRouter)
 app.use('/api/v1/upload', uploadRouter)
 app.use('/api/v1/article', articleRouter)
 app.use('/api/v1/views', viewsRouter)
+app.use('/api/v1/subscribe', subscribeRouter)
+app.use('/api/v1/chat', chatRouter)
 
 
 app.get('/test', (req, res) => {
     res.sendFile(path.resolve(__dirname, './public/test.html'))
 })
-app.get('/post', (req, res) => {
-    res.sendFile(path.resolve(__dirname, './public/post.html'))
+app.get('/post-main', (req, res) => {
+    res.sendFile(path.resolve(__dirname, './public/post-main.html'))
 })
 app.get('/home', (req, res) => {
     res.sendFile(path.resolve(__dirname, './public/index.html'))
+})
+app.get('/chat', (req, res) => {
+    res.sendFile(path.resolve(__dirname, './public/chat.html'))
+})
+
+app.get('/dashboard', (req, res) => {
+    res.sendFile(path.resolve(__dirname, './public/dashboard.html'))
 })
 
 

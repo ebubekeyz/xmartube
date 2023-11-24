@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const {authenticateUser, authenticatePermissions} = require('../middleware/authentication')
 
+
 const {
     createViews,
     getAllViews,

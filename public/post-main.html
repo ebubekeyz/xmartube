@@ -135,28 +135,180 @@
         <div class="comment-box">
           <div class="vid-comment vid-img-body">
             <img src="./images/avatar.jpg" class="vid-img" alt="" />
-      
-           <div class="comment-block block">
-                <input type="text" class="comment-input" placeholder="Add a Comment">
+       
+           
+            <div class="comment-block block">
+              <input type="text" class="comment-input"  id="chat-input" placeholder="Add a Comment">
+              <input type="text" class="comment-input"  id="iden-input" placeholder="Add a Comment" hidden>
+              <button class="sub-btn btn" id="submit">send</button>
            </div>
           </div>
          </div>
          
 
-        <article class="comment-box">
+        <article class="comment-box" id="chat">
           <div class="vid-img-body">
             <p class="comment-letter vid-img">J</p>
+
+            <div class="comment-block block">
+              <div class="text">
+                <span>@user@gmail.com</span>
+               
+              </div>
+              <h4>Unveiling Cinematic Marvels: A Sneak Peek into the Most Anticipated Movie Trailers of the Year!</h4>
       
-           <div class="comment-block block">
-            <div class="text">
-              <span>@user@gmail.com</span>
-              <span>9 days ago</span>
-            </div>
-            <h4>Unveiling Cinematic Marvels: A Sneak Peek into the Most Anticipated Movie Trailers of the Year!</h4>
-    
-           </div>
+           
+          </div>
           </div>
          </article>
+         <script>
+          const chatInput = document.querySelector('#chat-input')
+          const idenInput = document.querySelector('#iden-input')
+          const submitBtn = document.querySelector('#submit')
+         
+          const params4 = window.location.search;
+const urlID4 = new URLSearchParams(params4).get('id');
+
+const params5 = window.location.search;
+const urlID5 = new URLSearchParams(params5).get('id');
+
+console.log(chatInput)
+          submitBtn.addEventListener('click', async (e) => {
+           
+       
+      try {
+        const response = await fetch(`/api/v1/chat/${urlID5}`, {
+          method: 'GET',
+          headers: {
+            "Content-Type": 'application/json'
+          }
+        })
+        const chatBox = document.querySelector('#chat')
+          const chatInner = document.createElement('div')
+
+        const data = await response.json()
+        const chat = data.chat
+       console.log(chat)
+      const chatValue = chatInput.value
+           const {_id:id, message, subscribe:{email:email}} = chat
+           console.log(id, message, email)
+           chatInner.setAttribute('class','vid-img-body')
+          chatInner.innerHTML = `
+          <p class="comment-letter vid-img">${email.toUpperCase().slice(0, 1)}</p>
+      
+       <div class="comment-block block">
+        <div class="text">
+          <span>${email}</span>
+        </div>
+        <h4>${message}</h4>
+          `
+          chatBox.appendChild(chatInner)
+
+
+      }
+      catch(error){
+        console.log(error)
+      }
+            
+          })
+
+ 
+
+idenInput.value = `${urlID4}`
+
+// const setupStore = (chat) => {
+//     store = chat.map((chat) => {
+//         const {_id:id, message, subscribe:{email: email} } = chat;
+       
+//         return {id, message, email  }
+
+//     })
+   
+//     localStorage.setItem('store', store)
+//     };
+
+    
+
+
+ 
+// const init =  async() => {
+//   const response = await fetch(`/api/v1/chat/${urlID5}/article`)
+//   const data = response.json()
+//   console.log(data)
+// }
+// init()
+const contCom = document.querySelector('#chat')
+
+window.addEventListener('DOMContentLoaded',async (e) => {
+  try{
+    const response = await fetch(`/api/v1/chat/${urlID4}/article`, {
+            method: 'GET',
+            headers: {
+              "Content-Type":'application/json'
+            }
+          })
+
+          const data = await response.json()
+          const chat = data.chat
+       
+
+          contCom.innerHTML = chat.map((chat) => {
+            const {_id:id, message, subscribe:{email: email} } = chat
+
+            return `
+            <div class="vid-img-body">
+            <p class="comment-letter vid-img">${email.toUpperCase().slice(0, 1)}</p>
+
+            <div class="comment-block block">
+              <div class="text">
+                <span>${email}</span>
+               
+              </div>
+              <h4>${message}</h4>
+      
+           
+          </div>
+          </div>
+            `
+          })
+  }
+  catch(error){
+    console.log(error)
+  }
+})
+
+      submitBtn.addEventListener('click',async (e) => {
+        e.preventDefault()
+        const message = chatInput.value
+        const article = idenInput.value
+        submitBtn.textContent = 'sending'
+        try{
+          const response = await fetch('/api/v1/chat', {
+            method: 'POST',
+            headers: {
+              "Content-Type":'application/json'
+            },
+            body: JSON.stringify({message, article})
+          })
+        
+          
+          if(response.status === 201){
+            chatInput.value = ''
+            submitBtn.textContent = 'sent'
+
+          } else {
+          window.location = '/chat' 
+          submitBtn.textContent = 'please subscribe'
+         
+          }
+        }
+        catch(error){
+          console.log(error)
+         
+        }
+      })
+          
+         </script>
 
 
         
@@ -403,21 +555,21 @@ else if(date.getDate() === dateToday.getDate() - 30){
 else {
   date = 'Days back'
 }
-console.log(date)
+
    
         return `
         <article class="post-player">
           <div class="blog">
            <img src="${image}" class="post-img vid-img" alt="">
    
-           <a href="/post?id=${id}" class="watch"><i class="fas fa-play"></i></a>
+           <a href="/post-main?id=${id}" class="watch"><i class="fas fa-play"></i></a>
           </div>
    
        <div class="vid-img-body">
         
    
         <div class="post-block block">
-          <h4><a href="/post?id=${id}">${title}</a></h4>
+          <h4><a href="/post-main?id=${id}">${title}</a></h4>
    
          <div class="text">
            <span>${name}</span>
@@ -500,7 +652,7 @@ else if(date2.getDate() === dateToday2.getDate() - 30){
 else {
   date2 = 'Days back'
 }
-console.log(date2)
+
    
 
       const names = document.querySelector('.name')
@@ -541,7 +693,7 @@ const urlID2 = new URLSearchParams(params3).get('id');
 
       const data = await response.json()
       const views = data.views
-      console.log(views)
+    
       const viewsLength = views.length
       if(views.length < 2){
         viewDOM.textContent = `${viewsLength} view`
@@ -595,7 +747,7 @@ viewsFunc()
       })
       const data = await response.json()
       const views = data.views
-      console.log(views)
+     
       
     }
     catch(error){
@@ -676,21 +828,21 @@ else if(date.getDate() === dateToday.getDate() - 30){
 else {
   date = 'Days back'
 }
-console.log(date)
+
         
         return `
         <article class="post-player">
           <div class="blog">
            <img src="${image}" class="post-img vid-img" alt="">
    
-           <a href="/post?id=${id}" class="watch"><i class="fas fa-play"></i></a>
+           <a href="/post-main?id=${id}" class="watch"><i class="fas fa-play"></i></a>
           </div>
    
        <div class="vid-img-body">
         
    
         <div class="post-block block">
-          <h4><a href="/post?id=${id}">${title}</a></h4>
+          <h4><a href="/post-main?id=${id}">${title}</a></h4>
    
          <div class="text">
            <span>${name}</span>
@@ -784,21 +936,21 @@ else if(date.getDate() === dateToday.getDate() - 30){
 else {
   date = 'Days back'
 }
-console.log(date)
+
   
   return `
   <article class="post-player">
           <div class="blog">
            <img src="${image}" class="post-img vid-img" alt="">
    
-           <a href="/post?id=${id}" class="watch"><i class="fas fa-play"></i></a>
+           <a href="/post-main?id=${id}" class="watch"><i class="fas fa-play"></i></a>
           </div>
    
        <div class="vid-img-body">
         
    
         <div class="post-block block">
-          <h4><a href="/post?id=${id}">${title}</a></h4>
+          <h4><a href="/post-main?id=${id}">${title}</a></h4>
    
          <div class="text">
            <span>${name}</span>
@@ -876,21 +1028,21 @@ else if(date.getDate() === dateToday.getDate() - 30){
 else {
   date = 'Days back'
 }
-console.log(date)
+
   
   return `
   <article class="post-player">
           <div class="blog">
            <img src="${image}" class="post-img vid-img" alt="">
    
-           <a href="/post?id=${id}" class="watch"><i class="fas fa-play"></i></a>
+           <a href="/post-main?id=${id}" class="watch"><i class="fas fa-play"></i></a>
           </div>
    
        <div class="vid-img-body">
         
    
         <div class="post-block block">
-          <h4><a href="/post?id=${id}">${title}</a></h4>
+          <h4><a href="/post-main?id=${id}">${title}</a></h4>
    
          <div class="text">
            <span>${name}</span>
@@ -970,21 +1122,20 @@ else if(date.getDate() === dateToday.getDate() - 30){
 else {
   date = 'Days back'
 }
-console.log(date)
   
   return `
   <article class="post-player">
           <div class="blog">
            <img src="${image}" class="post-img vid-img" alt="">
    
-           <a href="/post?id=${id}" class="watch"><i class="fas fa-play"></i></a>
+           <a href="/post-main?id=${id}" class="watch"><i class="fas fa-play"></i></a>
           </div>
    
        <div class="vid-img-body">
         
    
         <div class="post-block block">
-          <h4><a href="/post?id=${id}">${title}</a></h4>
+          <h4><a href="/post-main?id=${id}">${title}</a></h4>
    
          <div class="text">
            <span>${name}</span>
@@ -1065,21 +1216,21 @@ else if(date.getDate() === dateToday.getDate() - 30){
 else {
   date = 'Days back'
 }
-console.log(date)
+
   
   return `
   <article class="post-player">
           <div class="blog">
            <img src="${image}" class="post-img vid-img" alt="">
    
-           <a href="/post?id=${id}" class="watch"><i class="fas fa-play"></i></a>
+           <a href="/post-main?id=${id}" class="watch"><i class="fas fa-play"></i></a>
           </div>
    
        <div class="vid-img-body">
         
    
         <div class="post-block block">
-          <h4><a href="/post?id=${id}">${title}</a></h4>
+          <h4><a href="/post-main?id=${id}">${title}</a></h4>
    
          <div class="text">
            <span>${name}</span>
@@ -1160,21 +1311,21 @@ else if(date.getDate() === dateToday.getDate() - 30){
 else {
   date = 'Days back'
 }
-console.log(date)
+
   
   return `
   <article class="post-player">
           <div class="blog">
            <img src="${image}" class="post-img vid-img" alt="">
    
-           <a href="/post?id=${id}" class="watch"><i class="fas fa-play"></i></a>
+           <a href="/post-main?id=${id}" class="watch"><i class="fas fa-play"></i></a>
           </div>
    
        <div class="vid-img-body">
         
    
         <div class="post-block block">
-          <h4><a href="/post?id=${id}">${title}</a></h4>
+          <h4><a href="/post-main?id=${id}">${title}</a></h4>
    
          <div class="text">
            <span>${name}</span>
@@ -1242,14 +1393,14 @@ return `
           <div class="blog">
            <img src="${image}" class="post-img vid-img" alt="">
    
-           <a href="/post?id=${id}" class="watch"><i class="fas fa-play"></i></a>
+           <a href="/post-main?id=${id}" class="watch"><i class="fas fa-play"></i></a>
           </div>
    
        <div class="vid-img-body">
         
    
         <div class="post-block block">
-          <h4><a href="/post?id=${id}">${title}</a></h4>
+          <h4><a href="/post-main?id=${id}">${title}</a></h4>
    
          <div class="text">
            <span>${name}</span>
@@ -1336,21 +1487,21 @@ else if(date.getDate() === dateToday.getDate() - 30){
 else {
   date = 'Days back'
 }
-console.log(date)
+
 
 return `
 <article class="post-player">
           <div class="blog">
            <img src="${image}" class="post-img vid-img" alt="">
    
-           <a href="/post?id=${id}" class="watch"><i class="fas fa-play"></i></a>
+           <a href="/post-main?id=${id}" class="watch"><i class="fas fa-play"></i></a>
           </div>
    
        <div class="vid-img-body">
         
    
         <div class="post-block block">
-          <h4><a href="/post?id=${id}">${title}</a></h4>
+          <h4><a href="/post-main?id=${id}">${title}</a></h4>
    
          <div class="text">
            <span>${name}</span>
@@ -1438,21 +1589,21 @@ else if(date.getDate() === dateToday.getDate() - 30){
 else {
   date = 'Days back'
 }
-console.log(date)
+
 
 return `
 <article class="post-player">
           <div class="blog">
            <img src="${image}" class="post-img vid-img" alt="">
    
-           <a href="/post?id=${id}" class="watch"><i class="fas fa-play"></i></a>
+           <a href="/post-main?id=${id}" class="watch"><i class="fas fa-play"></i></a>
           </div>
    
        <div class="vid-img-body">
         
    
         <div class="post-block block">
-          <h4><a href="/post?id=${id}">${title}</a></h4>
+          <h4><a href="/post-main?id=${id}">${title}</a></h4>
    
          <div class="text">
            <span>${name}</span>
@@ -1548,21 +1699,21 @@ else if(date.getDate() === dateToday.getDate() - 30){
 else {
   date = 'Days back'
 }
-console.log(date)
+
 
 return `
 <article class="post-player">
           <div class="blog">
            <img src="${image}" class="post-img vid-img" alt="">
    
-           <a href="/post?id=${id}" class="watch"><i class="fas fa-play"></i></a>
+           <a href="/post-main?id=${id}" class="watch"><i class="fas fa-play"></i></a>
           </div>
    
        <div class="vid-img-body">
         
    
         <div class="post-block block">
-          <h4><a href="/post?id=${id}">${title}</a></h4>
+          <h4><a href="/post-main?id=${id}">${title}</a></h4>
    
          <div class="text">
            <span>${name}</span>
@@ -1653,20 +1804,20 @@ else if(date.getDate() === dateToday.getDate() - 30){
 else {
   date = 'Days back'
 }
-console.log(date)
+
 return `
 <article class="post-player">
           <div class="blog">
            <img src="${image}" class="post-img vid-img" alt="">
    
-           <a href="/post?id=${id}" class="watch"><i class="fas fa-play"></i></a>
+           <a href="/post-main?id=${id}" class="watch"><i class="fas fa-play"></i></a>
           </div>
    
        <div class="vid-img-body">
         
    
         <div class="post-block block">
-          <h4><a href="/post?id=${id}">${title}</a></h4>
+          <h4><a href="/post-main?id=${id}">${title}</a></h4>
    
          <div class="text">
            <span>${name}</span>
@@ -1753,21 +1904,21 @@ else if(date.getDate() === dateToday.getDate() - 30){
 else {
   date = 'Days back'
 }
-console.log(date)
+
 
 return `
 <article class="post-player">
           <div class="blog">
            <img src="${image}" class="post-img vid-img" alt="">
    
-           <a href="/post?id=${id}" class="watch"><i class="fas fa-play"></i></a>
+           <a href="/post-main?id=${id}" class="watch"><i class="fas fa-play"></i></a>
           </div>
    
        <div class="vid-img-body">
         
    
         <div class="post-block block">
-          <h4><a href="/post?id=${id}">${title}</a></h4>
+          <h4><a href="/post-main?id=${id}">${title}</a></h4>
    
          <div class="text">
            <span>${name}</span>
@@ -1855,21 +2006,21 @@ else if(date.getDate() === dateToday.getDate() - 30){
 else {
   date = 'Days back'
 }
-console.log(date)
+
 
 return `
 <article class="post-player">
           <div class="blog">
            <img src="${image}" class="post-img vid-img" alt="">
    
-           <a href="/post?id=${id}" class="watch"><i class="fas fa-play"></i></a>
+           <a href="/post-main?id=${id}" class="watch"><i class="fas fa-play"></i></a>
           </div>
    
        <div class="vid-img-body">
         
    
         <div class="post-block block">
-          <h4><a href="/post?id=${id}">${title}</a></h4>
+          <h4><a href="/post-main?id=${id}">${title}</a></h4>
    
          <div class="text">
            <span>${name}</span>
@@ -1955,21 +2106,21 @@ else if(date.getDate() === dateToday.getDate() - 30){
 else {
   date = 'Days back'
 }
-console.log(date)
+
 
 return `
 <article class="post-player">
           <div class="blog">
            <img src="${image}" class="post-img vid-img" alt="">
    
-           <a href="/post?id=${id}" class="watch"><i class="fas fa-play"></i></a>
+           <a href="/post-main?id=${id}" class="watch"><i class="fas fa-play"></i></a>
           </div>
    
        <div class="vid-img-body">
         
    
         <div class="post-block block">
-          <h4><a href="/post?id=${id}">${title}</a></h4>
+          <h4><a href="/post-main?id=${id}">${title}</a></h4>
    
          <div class="text">
            <span>${name}</span>
@@ -2057,21 +2208,21 @@ else if(date.getDate() === dateToday.getDate() - 30){
 else {
   date = 'Days back'
 }
-console.log(date)
+
 
 return `
 <article class="post-player">
           <div class="blog">
            <img src="${image}" class="post-img vid-img" alt="">
    
-           <a href="/post?id=${id}" class="watch"><i class="fas fa-play"></i></a>
+           <a href="/post-main?id=${id}" class="watch"><i class="fas fa-play"></i></a>
           </div>
    
        <div class="vid-img-body">
         
    
         <div class="post-block block">
-          <h4><a href="/post?id=${id}">${title}</a></h4>
+          <h4><a href="/post-main?id=${id}">${title}</a></h4>
    
          <div class="text">
            <span>${name}</span>
@@ -2158,21 +2309,21 @@ else if(date.getDate() === dateToday.getDate() - 30){
 else {
   date = 'Days back'
 }
-console.log(date)
+
 
 return `
 <article class="post-player">
           <div class="blog">
            <img src="${image}" class="post-img vid-img" alt="">
    
-           <a href="/post?id=${id}" class="watch"><i class="fas fa-play"></i></a>
+           <a href="/post-main?id=${id}" class="watch"><i class="fas fa-play"></i></a>
           </div>
    
        <div class="vid-img-body">
         
    
         <div class="post-block block">
-          <h4><a href="/post?id=${id}">${title}</a></h4>
+          <h4><a href="/post-main?id=${id}">${title}</a></h4>
    
          <div class="text">
            <span>${name}</span>
